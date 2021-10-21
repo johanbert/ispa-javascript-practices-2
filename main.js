@@ -35,24 +35,40 @@ const getNewName2 = (nombre) => nombre += ' PETRONILO'
 let studentName1 = 'JOSE RODRIGUEZ';
 let studentName2 = 'LAURA FERNANDEZ';
 
-console.log('RESPUESTA 1:', getNewName1(studentName1))
-console.log('RESPUESTA 1:', getNewName2(studentName2))
-console.log(1, 2, 3, 4, 'estos son numeros');
+// console.log('RESPUESTA 1:', getNewName1(studentName1))
+// console.log('RESPUESTA 1:', getNewName2(studentName2))
+// console.log(1, 2, 3, 4, 'estos son numeros');
 
-// ARRAYS
-const listStudents = ['Jose', 'Laura', 'Sebastian', 'Nelson']
 
-console.log('LOG DE LISTA:', listStudents);
 
+// PROGRAMACION ORIENTADA A OBJETOS
 // Declarar una clase con la palabra reservada "class"
-class ClaseEstudiante {
+
+class Persona {
+    nombre
+    apellido
+    edad
+
+    decirNombre() {
+        return this.nombre
+    }
+    decirApellido() {
+        return this.apellido
+    }
+    decirNombreCompleto() {
+        return `${this.decirNombre()} ${this.decirApellido()}`
+            // return `${this.nombre} ${this.apellido}`
+            // return this.nombre + ' ' + this.apellido
+    }
+    getAge() {
+        return this.edad
+    }
+}
+class ClaseEstudiante extends Persona {
     tamano = '1.60'
 
-    getName() {
-        console.log('JUAN')
-    }
-    getLastname() {
-        console.log('BUITRAGO')
+    getDatosPersonales() {
+        return `${this.decirNombreCompleto()} ${this.getAge()}`
     }
     getSize() {
         console.log(this.tamano);
@@ -61,9 +77,23 @@ class ClaseEstudiante {
 
 //CREAR UNA NUEVA INSTANCIA DE LA CLASE CON "new"
 //CREAR UN OBJETO DE UNA CLASE CON "new"
+const objIronMan = new Persona()
+objIronMan.nombre = 'Tony'
+objIronMan.apellido = 'Stark'
+objIronMan.edad = '52'
+console.log(`${objIronMan.decirNombreCompleto()} ${objIronMan.getAge()}`)
+
+const objCapitanAmerica = new Persona()
+objCapitanAmerica.nombre = 'Steve'
+objCapitanAmerica.apellido = 'Rogers'
+objCapitanAmerica.edad = '77'
+console.log(`${objCapitanAmerica.decirNombreCompleto()} ${objCapitanAmerica.getAge()}`)
+
 const objClaseEstudiante = new ClaseEstudiante()
-objClaseEstudiante.getName()
-objClaseEstudiante.getLastname()
+objClaseEstudiante.nombre = 'Juan'
+objClaseEstudiante.apellido = 'Buitrago'
+objClaseEstudiante.edad = 14
+console.log(objClaseEstudiante.getDatosPersonales());
 objClaseEstudiante.getSize()
 objClaseEstudiante.tamano = '1.70'
 console.log(objClaseEstudiante.tamano);

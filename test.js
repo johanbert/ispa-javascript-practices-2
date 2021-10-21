@@ -1,0 +1,1 @@
+const test = (element) => console.log(element.value);
